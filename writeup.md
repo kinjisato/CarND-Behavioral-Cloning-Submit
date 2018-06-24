@@ -19,7 +19,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./images/nVidia_model.png "nVidia model"
-[image2]: ./examples/placeholder.png "Grayscaling"
+[image2]: ./images/mseLossVsEpochs.png "mse loss"
 
 
 ## Rubric Points
@@ -100,7 +100,7 @@ So, I'm very confused. At least, the data I collected gave good result. But this
 My approach was the same as the lecture video. And finally, I decided to use nVidia model, because that gave me better result than other filters. 
 I checked the mean square error of training loss and validation loss. those were reduced by each epochs, and both loss values were almost the same. So I thought there was not overfitting with using this model and my data.
 
-
+![alt text][image2]
 
 #### 2. Final Model Architecture
 
