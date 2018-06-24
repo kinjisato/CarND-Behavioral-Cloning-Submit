@@ -19,7 +19,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./images/nVidia_model.png "nVidia model"
-[image2]: ./images/mseLossVsEpochs.png "mse loss"
+[image2]: ./images/mseLossVsEpochs.PNG "mse loss"
 
 
 ## Rubric Points
