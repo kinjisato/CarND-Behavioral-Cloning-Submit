@@ -16,11 +16,23 @@ from keras.models import load_model
 import h5py
 from keras import __version__ as keras_version
 
+import cv2
+
 sio = socketio.Server()
 app = Flask(__name__)
 model = None
 prev_image_array = None
 
+def preprocess_image(img):
+    # cut top 50 and bottom 20
+    new_img = img[50:140,:,:]
+    # Blur (needed?)
+    new_img = cv2.GaussianBlur(new_img, (3,3), 0)
+    # nVidia model 66 x 200 x 3
+    new_img = cv2.resize(new_img,(200, 66), interpolation = cv2.INTER_AREA)
+    # color change for nVidia model
+    new_img = cv2.cvtColor(new_img, cv2.COLOR_RGB2YUV)
+    return new_img
 
 class SimplePIController:
     def __init__(self, Kp, Ki):
@@ -61,8 +73,12 @@ def telemetry(sid, data):
         imgString = data["image"]
         image = Image.open(BytesIO(base64.b64decode(imgString)))
         image_array = np.asarray(image)
-        steering_angle = float(model.predict(image_array[None, :, :, :], batch_size=1))
-
+        # added
+        img = preprocess_image(image_array)
+        transformed_image_array = img[None, :, :, :]
+        steering_angle = float(model.predict(transformed_image_array, batch_size=1))
+        # original
+        #steering_angle = float(model.predict(image_array[None, :, :, :], batch_size=1))
         throttle = controller.update(float(speed))
 
         print(steering_angle, throttle)
