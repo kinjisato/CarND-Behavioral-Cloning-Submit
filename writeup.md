@@ -57,7 +57,29 @@ The model.py file contains the code for training and saving the convolution neur
 
 ![alt text][image1]
 
-I used nVidia 
+I used nVidia model for my neural network model. 
+
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 66 x 200 x3 YUV image (normalized)  							| 
+| Convolution 5x5     	| 2x2 stride, padding 'VALID', 24 depth 	|
+| Activation					|	ReLU									|
+| Convolution 5x5     	| 2x2 stride, padding 'VALID', 36 depth 	|
+| Activation					|	ReLU									|
+| Convolution 5x5     	| 2x2 stride, padding 'VALID', 48 depth 	|
+| Convolution 3x3	    | 64 depth 	|
+| Activation					|	ReLU									|
+| Convolution 3x3	    | 64 depth 	|
+| Activation					|	ReLU									|
+| Flatten		|       									|
+| (Dropout)					|	(0.5)									|
+| Fully connected		| output = 100       									|
+| (Dropout)					|	(0.5)									|
+| Fully connected		| output = 50       									|
+| (Dropout)					|	(0.5)									|
+| Fully connected		| output = 10      									|
+| (Dropout)					|	(0.5)									|
+| Fully connected		| output = 1      									|
 
 
 
