@@ -20,11 +20,7 @@ The goals / steps of this project are the following:
 
 [image1]: ./images/nVidia_model.png "nVidia model"
 [image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -93,30 +89,18 @@ The model used an adam optimizer, so the learning rate was not tuned manually.
 
 #### 4. Appropriate training data
 
+This was big problem for me. Because, I'm not sure how much data volume required for training the model. As first, I used the data I could download from Udacity web. There were more than 8,000 lines in csv file, and each have 3 images (center, left and right), and I added flipped imaged (same as lecture video), so I could get 6 images from each lines. But unfortunately, the car behavior was not good. So I took the data from simulator by myself. Just only a few laps, and volume was the half of the data from Udacity. But, the car behavior was better.
+So, I'm very confused. At least, the data I collected gave good result. But this is very difficult to explain the reason.
 
-
-
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
-
-For details about how I created the training data, see the next section. 
 
 ### Model Architecture and Training Strategy
 
 #### 1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to ...
+My approach was the same as the lecture video. And finally, I decided to use nVidia model, because that gave me better result than other filters. 
+I checked the mean square error of training loss and validation loss. those were reduced by each epochs, and both loss values were almost the same. So I thought there was not overfitting with using this model and my data.
 
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
-
-To combat the overfitting, I modified the model so that ...
-
-Then I ... 
-
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
-
-At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
 #### 2. Final Model Architecture
 
