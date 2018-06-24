@@ -2,7 +2,7 @@
 
 ## Writeup
 
-### Kinji Sato 23/June/2018
+### Kinji Sato 24/June/2018
 
 ---
 
@@ -54,6 +54,10 @@ The model.py file contains the code for training and saving the convolution neur
 ### Model Architecture and Training Strategy
 
 #### 1. An appropriate model architecture has been employed
+
+I used nVidia 
+
+
 
 My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
 
